@@ -1,5 +1,5 @@
 # Email-bomber
 ===============
-before opening the tool type this command :. chmod +x E-bomber.py
+before opening the tool type this command :. chmod +x Bom-mail.py
 
 # bom-mail
