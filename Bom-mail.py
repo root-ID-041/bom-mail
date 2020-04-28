@@ -9,21 +9,21 @@ import smtplib
 import getpass
 import sys
 
-print '+=========================+'
-print '|| PONOROGO DEFACER TEAM ||'
-print '||     root-ID-041       ||'
-print '||   Date 20/09/2017     ||'
-print '+=========================+'
+print('+=========================+')
+print('|| PONOROGO DEFACER TEAM ||')
+print('||     root-ID-041       ||')
+print('||   Date 20/09/2017     ||')
+print('+=========================+')
 
-server = raw_input ('MailServer Gmail/Yahoo: ')
-user = raw_input('Emailmu: ')
+server = input ('MailServer Gmail/Yahoo: ')
+user = input('Emailmu: ')
 passwd = getpass.getpass('Passwordmu: ')
 
 
-to = raw_input('\nTo: ')
+to = input('\nTo: ')
 #subject = raw_input('Subject: ') 
-body = raw_input('Message: ')
-total = input('Number of send: ')
+body = input('Message: ')
+total = eval(input('Number of send: '))
 
 if server == 'gmail':
     smtp_server = 'smtp.gmail.com'
@@ -32,10 +32,10 @@ elif server == 'yahoo':
     smtp_server = 'smtp.mail.yahoo.com'
     port = 25
 else:
-    print 'Applies only to gmail and yahoo.'
+    print('Applies only to gmail and yahoo.')
     sys.exit()
 
-print ''
+print('')
 
 try:
     server = smtplib.SMTP(smtp_server,port) 
@@ -47,13 +47,14 @@ try:
         subject = os.urandom(9)
         msg = 'From: ' + user + '\nSubject: ' + subject + '\n' + body
         server.sendmail(user,to,msg)
-        print "\rE-mails sent: %i" % i
+        print("\rE-mails sent: %i" % i)
         sys.stdout.flush()
     server.quit()
-    print '\n Done !!!'
+    print('\n Done !!!')
 except KeyboardInterrupt:
-    print '[-] Canceled'
+    print('[-] Canceled')
     sys.exit()
 except smtplib.SMTPAuthenticationError:
-    print '\n[!] The username or password you entered is incorrect.'
+    print('\n[!] The username or password you entered is incorrect.')
     sys.exit()
+
